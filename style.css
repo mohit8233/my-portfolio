@@ -466,5 +466,8 @@ span{
 }
 
 .contact form .textarea-field textarea{
+    resize: none;
+}
+.contact form .btn-box.btns .btn{
     
 }
