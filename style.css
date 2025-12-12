@@ -551,3 +551,131 @@ span{
 .footer-iconTop a:hover i{
     color: var(--main-color);
 }
+
+/* project */
+/* -------------------------------------
+   SECTION BG HOVER WITH ::BEFORE
+-------------------------------------- */
+.project-section {
+    position: relative;
+    padding: 100px 50px;
+    overflow: hidden;
+}
+
+.project-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+ background: var(--bg-color);
+    z-index: -1;
+    transition: .4s ease;
+}
+
+/* .project-section:hover::before {
+   
+} */
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+/* -------------------------------------
+   GRID LAYOUT
+-------------------------------------- */
+.project-container {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* -------------------------------------
+   CARD WITH ::BEFORE EFFECT
+-------------------------------------- */
+.project-card {
+    position: relative;
+    padding: 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    color: #fff;
+    z-index: 1;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #222;
+    border-radius: 14px;
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.project-card:hover::before {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* IMAGE */
+.project-card img {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+/* LIVE DEMO */
+.btn.live {
+    background: #00e1ff;
+    color: black;
+}
+.btn.live:hover {
+    background: #00b3cc;
+}
+
+/* VIEW CODE */
+.btn.code {
+    background: #ffc400;
+    color: black;
+}
+.btn.code:hover {
+    background: #d9a600;
+}
+/* media Queary */
+
+@media (max-width:1200px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+@media (max-width:991px) {
+    .header{
+        padding: 2rem 4%;
+    }
+
+    section{
+        padding: 10rem 4% 2rem;
+    }
+
+    .home{
+        padding: 0 4rem;
+    }
+}
