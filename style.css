@@ -553,55 +553,69 @@ span{
 }
 
 /* project */
-/* -------------------------------------
-   SECTION BG HOVER WITH ::BEFORE
--------------------------------------- */
+/* -----------------------------
+   PROJECT SECTION WRAPPER
+------------------------------ */
 .project-section {
     position: relative;
     padding: 100px 50px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center everything */
 }
 
+/* BACKGROUND */
 .project-section::before {
     content: "";
     position: absolute;
     inset: 0;
- background: var(--bg-color);
+    background: var(--bg-color);
     z-index: -1;
     transition: .4s ease;
 }
 
-/* .project-section:hover::before {
-   
-} */
-
+/* SECTION TITLE */
 .title {
     text-align: center;
     font-size: 40px;
     margin-bottom: 40px;
+    width: 100%;
 }
 
-/* -------------------------------------
-   GRID LAYOUT
--------------------------------------- */
+/* -----------------------------
+   RESPONSIVE GRID
+------------------------------ */
 .project-container {
     display: grid;
     gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    width: 100%;
+    max-width: 1300px;   /* center limit */
+    margin: auto;        /* center grid */
+    padding: 0 20px;
 }
 
-/* -------------------------------------
-   CARD WITH ::BEFORE EFFECT
--------------------------------------- */
+/* -----------------------------
+   PROJECT CARD
+------------------------------ */
 .project-card {
     position: relative;
     padding: 20px;
     border-radius: 14px;
     overflow: hidden;
     color: #fff;
+    background: #111;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+    transition: .3s ease;
     z-index: 1;
 }
 
+.project-card:hover {
+    transform: translateY(-6px);
+}
+
+/* CARD BG EFFECT */
 .project-card::before {
     content: "";
     position: absolute;
@@ -626,38 +640,83 @@ span{
     margin-bottom: 15px;
 }
 
-/* BUTTONS */
+/* TEXTS */
+.project-card h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 15px;
+    color: #ccc;
+}
+
+/* BUTTON AREA */
 .buttons {
     display: flex;
     gap: 15px;
     margin-top: 15px;
+    flex-wrap: wrap;
 }
 
 .btn {
     padding: 10px 16px;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     transition: .3s;
+    font-size: 15px;
 }
 
-/* LIVE DEMO */
+/* LIVE BUTTON */
 .btn.live {
     background: #00e1ff;
     color: black;
 }
 .btn.live:hover {
-    background: #00b3cc;
+    background: #00c0d6;
 }
 
-/* VIEW CODE */
+/* CODE BUTTON */
 .btn.code {
     background: #ffc400;
     color: black;
 }
 .btn.code:hover {
-    background: #d9a600;
+    background: #e0ad00;
 }
+
+/* -----------------------------
+   MOBILE RESPONSIVE FIXES
+------------------------------ */
+@media (max-width: 900px) {
+    .title {
+        font-size: 32px;
+    }
+    .project-section {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card img {
+        height: 150px;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* media Queary */
 
 @media (max-width:1200px) {
@@ -678,4 +737,67 @@ span{
     .home{
         padding: 0 4rem;
     }
+
+    .footer{
+        padding: 2rem 4%;
+    }
+}
+
+@media (max-width:768px){
+   .header{
+     background:  var(--bg-color);
+   }
+   #menu-icon{
+    display: block;
+   }
+   .navbar{
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    width: 100%;
+    padding: 1rem 4%; 
+    background: var(--main-color);
+    box-shadow: 0.5rem 1rem rbga(0, 0, 0, .2);
+    transition: .25s ease;
+    z-index: 1;
+    transition-delay: .25s;
+   }
+   .navbar.active{
+       left: 0;
+       transition-delay: 0s;
+   }
+    
+   .navbar .active-nav{
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    border-top: .1rem solid rgba(0,0,0, .2);
+    z-index: -1;
+    transition: .25s ease;
+    transition-delay: 0s;
+   }
+   .navbar.active .active-nav{
+    left: 0;
+    transition-delay: .25s;
+       
+   }
+   .navbar a{
+       display: block;
+       font-size: 2rem;
+       margin: 3rem 0;
+       transform: translateX(-20rem);
+       transition: .25s ease;
+       transition-delay: 0s;
+        
+   }
+
+   .navbar.active a{
+       transform: translateX(0);
+       transition-delay: .25s;
+
+       
+   }
 }
