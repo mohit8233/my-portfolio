@@ -3,73 +3,50 @@
 let menuIcon = document.querySelector("#menu-icon")
 let navbar = document.querySelector(".navbar")
 
-menuIcon.onclick = () =>{
+menuIcon.onclick = () => {
     menuIcon.classList.toggle("bx-x")
     navbar.classList.toggle("active")
 
 }
 
-
 // scroll sections 
 
-let sections = document.querySelectorAll("section")
-let navlinks = document.querySelectorAll("header nav a")
+let sections = document.querySelectorAll("section");
+let navlinks = document.querySelectorAll("header nav a");
 
-
-window.onscroll = () =>{
+window.onscroll = () => {
     sections.forEach(sec => {
-        let top = window.scrollY
-        let offset = sec.offsetTop -100
-        let height = sec.offsetHeight
-        let id = sec.getAttribute('id')
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 100;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute("id");
 
-        if(top >= offset && top < offset + height){
-
+        if (top >= offset && top < offset + height) {
             // active navbar link 
-            navlinks.forEach(links => {
-                links.classList.remove('active')
-                document
-                        .querySelector('header nav a[href*='+ id +'] ')
-                        .classList.add('active')
-            })
+            navlinks.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            document
+                .querySelector("header nav a[href*=" + id + "]")
+                .classList.add("active");
         }
-    })
+    });
+
     // sticky header
-    let header = document.querySelector('header')
-
-    header.classList.toggle('sticky', window.scrollY > 100)
-}
+    let header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 100);
 
 
-// // toggle icon navbar
-// // scroll sections 
 
-// let sections = document.querySelectorAll("section"); 
-// let navlinks = document.querySelectorAll("header nav a"); 
+    // remove toggle icon and navbar when click navbar (scroll)
 
-// window.onscroll = () => {
-//     sections.forEach(sec => {
-//         let top = window.scrollY;
-//         let offset = sec.offsetTop - 100;
-//         let height = sec.offsetHeight;
-//         let id = sec.getAttribute("id");
 
-//         if (top >= offset && top < offset + height) {
-//             // active navbar link 
-//             navlinks.forEach(link => {
-//                 link.classList.remove("active");
-//             });
+    menuIcon.classList.remove("bx-x")
+    navbar.classList.remove("active")
+};
 
-//             document
-//                 .querySelector("header nav a[href*=" + id + "]")
-//                 .classList.add("active");
-//         }
-//     });
 
-//     // sticky header
-//     let header = document.querySelector("header");
-//     header.classList.toggle("sticky", window.scrollY > 100);
-// };
 
 
 
